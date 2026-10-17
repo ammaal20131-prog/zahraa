@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>تهنئة الأستاذة زهراء</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Kufi+Arabic:wght@400;500;600&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: a formal letter of appreciation shown one page at a time. A navy cover with a gold laurel opens onto four ivory pages; the laurel gains leaves on each page and is complete on the closing certificate. */
+:root{
+  --navy:#1E2A44; --navy-deep:#131B2F; --ivory:#FBF8F1; --ivory-2:#F3EDE0; --rule:#E2D8C2;
+  --ink:#232937; --muted:#676B78; --on-navy:#F4EFE3; --on-navy-muted:#B9BCC6;
+  --gold:#A9873F; --gold-light:#D6BC82; --gold-deep:#80642B;
+  --display:'Amiri', 'Times New Roman', serif;
+  --label:'Noto Kufi Arabic', 'Noto Naskh Arabic', sans-serif;
+  --body:'Noto Naskh Arabic', 'Amiri', serif;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--navy);color:var(--ink);font-family:var(--body);font-size:19px;line-height:2;overflow:hidden}
+button{font:inherit}
+button:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px}
+h1,h2{text-wrap:balance}
+
+.app{position:relative;height:100%;overflow:hidden;background:var(--ivory)}
+.bg-navy{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 80% 70% at 50% 35%, var(--navy) 0%, var(--navy-deep) 100%);transition:opacity .9s ease}
+.app:not([data-scene="0"]):not([data-scene="5"]) .bg-navy{opacity:0}
+.frame{position:absolute;inset:14px;border:1px solid var(--gold);z-index:3;pointer-events:none;transition:inset .8s ease}
+.frame::after{content:"";position:absolute;inset:6px;border:1px solid var(--gold-light);opacity:.7}
+.corner{position:absolute;width:26px;height:26px;z-index:3;pointer-events:none}
+.corner svg{width:100%;height:100%}
+.c1{top:6px;right:6px}.c2{top:6px;left:6px;transform:scaleX(-1)}.c3{bottom:6px;right:6px;transform:scaleY(-1)}.c4{bottom:6px;left:6px;transform:scale(-1,-1)}
+
+/* Progress */
+.progress{position:absolute;top:30px;left:max(36px, env(safe-area-inset-left, 0px));right:max(36px, env(safe-area-inset-right, 0px));display:flex;gap:6px;z-index:5;transition:opacity .5s}
+.progress i{flex:1;height:2px;background:var(--rule);position:relative;overflow:hidden}
+.progress i::after{content:"";position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .6s ease}
+.progress i.done::after{transform:scaleX(1)}
+.app[data-scene="0"] .progress,.app[data-scene="5"] .progress{opacity:0}
+
+/* Laurel */
+.laurel .stem{fill:none;stroke:currentColor;stroke-width:1.2;stroke-linecap:round}
+.laurel .lf{fill:currentColor;transform-box:fill-box;transform-origin:center;transition:transform .7s cubic-bezier(.2,.8,.2,1), opacity .7s}
+.laurel .lf.off{transform:scale(0);opacity:0}
+.page-laurel{position:absolute;top:52px;left:50%;width:118px;height:118px;transform:translateX(-50%);z-index:2;color:var(--gold);opacity:0;transition:opacity .6s}
+.app:not([data-scene="0"]):not([data-scene="5"]) .page-laurel{opacity:1}
+.page-laurel .num{font-family:var(--display);font-weight:700;font-size:40px;fill:var(--navy)}
+
+/* Scenes */
+.scene{position:absolute;inset:0;z-index:2;overflow-y:auto;opacity:0;visibility:hidden;transition:opacity .6s ease, visibility .6s}
+.scene.active{opacity:1;visibility:visible}
+.in{min-height:100%;max-width:640px;margin-inline:auto;padding-left:max(40px, env(safe-area-inset-left, 0px));padding-right:max(40px, env(safe-area-inset-right, 0px));display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.scene.active .rv{animation:rise .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--d, 0s)}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* Cover */
+.cover{color:var(--on-navy)}
+.cover .in{padding-block:56px}
+.label{font-family:var(--label);font-size:15px;font-weight:500;letter-spacing:.5px;color:var(--gold-light)}
+.emblem{width:150px;height:150px;margin-top:18px;color:var(--gold-light)}
+.emblem .star{fill:none;stroke:var(--gold-light);stroke-width:1.2}
+.cover .kind{font-family:var(--display);font-size:24px;color:var(--gold-light);margin-top:4px}
+.cover h1{font-family:var(--display);font-weight:700;font-size:clamp(36px, 9vw, 62px);line-height:1.4;margin:6px 0 0;color:var(--on-navy)}
+.cover .to{margin-top:14px;font-size:17px;color:var(--on-navy-muted)}
+.cover .name{font-family:var(--display);font-weight:700;font-size:clamp(28px, 7vw, 44px);line-height:1.5;color:var(--gold-light)}
+.cover .from{margin-top:18px;font-size:15px;color:var(--on-navy-muted)}
+.btn{margin-top:22px;min-height:50px;padding:0 34px;border:1px solid var(--gold-light);background:transparent;color:var(--gold-light);font-family:var(--label);font-weight:500;font-size:17px;cursor:pointer;transition:background .25s, color .25s}
+.btn:hover{background:var(--gold-light);color:var(--navy-deep)}
+
+/* Pages */
+.pg .in{justify-content:flex-start;padding-block:196px 120px}
+.pg .label{color:var(--gold-deep)}
+.pg h2{font-family:var(--display);font-weight:700;font-size:clamp(30px, 6.6vw, 42px);line-height:1.45;color:var(--navy);margin:6px 0 0}
+.divider{display:flex;align-items:center;gap:10px;margin:14px 0 18px}
+.divider i{display:block;width:56px;height:1px;background:var(--gold)}
+.divider b{display:block;width:6px;height:6px;transform:rotate(45deg);border:1px solid var(--gold)}
+.pg p{margin:0;max-width:30em;color:var(--ink)}
+
+/* Certificate */
+.fin .in{padding-block:44px 40px}
+.cert{width:100%;max-width:560px;background:var(--ivory);color:var(--ink);padding:10px;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.cert-in{border:1px solid var(--gold);outline:1px solid var(--gold-light);outline-offset:-6px;padding:34px 26px 30px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.cert .label{color:var(--gold-deep)}
+.cert h2{font-family:var(--display);font-weight:700;font-size:clamp(30px, 7vw, 40px);line-height:1.4;color:var(--navy);margin:2px 0 0}
+.cert .intro{margin-top:12px;font-size:17px;line-height:1.9;color:var(--muted)}
+.cert .name{font-family:var(--display);font-weight:700;font-size:clamp(28px, 7vw, 40px);line-height:1.5;color:var(--gold-deep)}
+.cert .reason{font-size:17px;line-height:1.9;max-width:26em}
+.cert blockquote{margin:16px 0 0;font-family:var(--display);font-weight:700;font-size:clamp(20px, 4.8vw, 25px);line-height:1.7;color:var(--navy)}
+.cert .dedic{margin-top:8px;font-family:var(--display);font-size:clamp(18px, 4.2vw, 21px);color:var(--muted)}
+.cert-foot{margin-top:22px;width:100%;display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
+.sig{text-align:center;min-width:0}
+.sig small{display:block;font-family:var(--label);font-size:13px;color:var(--muted);line-height:1.6}
+.sig strong{display:block;font-family:var(--display);font-size:26px;color:var(--navy);line-height:1.4;border-top:1px solid var(--rule);padding-top:4px;margin-top:4px}
+.seal{width:96px;height:96px;flex:0 0 auto;color:var(--gold)}
+.seal .star{fill:var(--gold);fill-opacity:.12;stroke:var(--gold);stroke-width:1.2}
+.again{margin-top:22px;min-height:46px;padding:0 26px;border:1px solid var(--gold-light);background:transparent;color:var(--gold-light);font-family:var(--label);font-size:15px;cursor:pointer}
+.again:hover{background:var(--gold-light);color:var(--navy-deep)}
+
+/* Nav */
+.nav{position:absolute;bottom:22px;left:0;right:0;z-index:4;display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:env(safe-area-inset-bottom, 0px);padding-left:max(36px, env(safe-area-inset-left, 0px));padding-right:max(36px, env(safe-area-inset-right, 0px));transition:opacity .5s, visibility .5s}
+.app[data-scene="0"] .nav,.app[data-scene="5"] .nav{opacity:0;visibility:hidden}
+.nav button{min-height:46px;min-width:110px;padding:0 20px;font-family:var(--label);font-size:15px;font-weight:500;cursor:pointer}
+.next{background:var(--navy);color:var(--on-navy);border:1px solid var(--navy)}
+.prev{background:var(--ivory);color:var(--navy);border:1px solid var(--rule)}
+.count{font-family:var(--label);font-size:13px;color:var(--muted)}
+
+@media (max-width:420px){
+  .in{padding-left:max(32px, env(safe-area-inset-left, 0px));padding-right:max(32px, env(safe-area-inset-right, 0px))}
+  .fin .in{padding-left:max(24px, env(safe-area-inset-left, 0px));padding-right:max(24px, env(safe-area-inset-right, 0px))}
+  .cert-in{padding:28px 16px 24px}
+  .seal{width:76px;height:76px}
+  .nav button{min-width:96px}
+}
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{transition:none !important;animation:none !important}
+}
+</style>
+
+</head><body>
+<div class="app" id="app" data-scene="0">
+  <div class="bg-navy" aria-hidden="true"></div>
+  <div class="frame" aria-hidden="true"></div>
+  <div class="corner c1" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M2 2 L12 2 M2 2 L2 12 M6 6 L6 14 M6 6 L14 6" stroke="#A9873F" stroke-width="1" fill="none"/><circle cx="6" cy="6" r="1.8" fill="#A9873F"/></svg></div>
+  <div class="corner c2" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M2 2 L12 2 M2 2 L2 12 M6 6 L6 14 M6 6 L14 6" stroke="#A9873F" stroke-width="1" fill="none"/><circle cx="6" cy="6" r="1.8" fill="#A9873F"/></svg></div>
+  <div class="corner c3" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M2 2 L12 2 M2 2 L2 12 M6 6 L6 14 M6 6 L14 6" stroke="#A9873F" stroke-width="1" fill="none"/><circle cx="6" cy="6" r="1.8" fill="#A9873F"/></svg></div>
+  <div class="corner c4" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M2 2 L12 2 M2 2 L2 12 M6 6 L6 14 M6 6 L14 6" stroke="#A9873F" stroke-width="1" fill="none"/><circle cx="6" cy="6" r="1.8" fill="#A9873F"/></svg></div>
+  <div class="progress" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+  <svg class="laurel page-laurel" id="pageLaurel" viewBox="-100 -100 200 200" aria-hidden="true">
+    <text class="num" id="pageNum" x="0" y="14" text-anchor="middle">١</text>
+  </svg>
+
+  <!-- Cover -->
+  <section class="scene cover active" data-i="0" aria-label="الغلاف">
+    <div class="in">
+      <div class="label rv">يوم المدير العالمي</div>
+      <svg class="laurel emblem rv" id="coverLaurel" style="--d:.15s" viewBox="-100 -100 200 200" aria-hidden="true">
+        <polygon class="star" points="0,-30 8.6,-20.8 21.2,-21.2 20.8,-8.6 30,0 20.8,8.6 21.2,21.2 8.6,20.8 0,30 -8.6,20.8 -21.2,21.2 -20.8,8.6 -30,0 -20.8,-8.6 -21.2,-21.2 -8.6,-20.8"/>
+        <circle r="7" fill="currentColor"/>
+      </svg>
+      <div class="kind rv" style="--d:.3s">خطابُ شكرٍ وتقدير</div>
+      <h1 class="rv" style="--d:.4s">إلى قائدةٍ تصنعُ الفرق</h1>
+      <div class="to rv" style="--d:.55s">مقدَّمٌ إلى سعادة</div>
+      <div class="name rv" style="--d:.6s">الأستاذة زهراء الشهراني</div>
+      <div class="from rv" style="--d:.75s">من المعلمة أمل الشهري</div>
+      <button class="btn rv" id="openBtn" type="button" style="--d:.9s">عرض الخطاب</button>
+    </div>
+  </section>
+
+  <section class="scene pg" data-i="1" aria-label="التقدير">
+    <div class="in">
+      <div class="label rv">أولًا · التقدير</div>
+      <h2 class="rv" style="--d:.15s" tabindex="-1">قامةٌ قياديةٌ تستحق الثناء</h2>
+      <div class="divider rv" style="--d:.25s" aria-hidden="true"><i></i><b></b><i></i></div>
+      <p class="rv" style="--d:.35s">في يوم المدير العالمي، نقف تقديرًا لقامةٍ قياديةٍ تستحق الثناء، ولروحٍ تجعل من العطاء نهجًا، ومن التميز هدفًا، ومن الاحترام أساسًا لكل نجاح.</p>
+    </div>
+  </section>
+
+  <section class="scene pg" data-i="2" aria-label="القيادة">
+    <div class="in">
+      <div class="label rv">ثانيًا · القيادة</div>
+      <h2 class="rv" style="--d:.15s" tabindex="-1">قائدةٌ ملهمة</h2>
+      <div class="divider rv" style="--d:.25s" aria-hidden="true"><i></i><b></b><i></i></div>
+      <p class="rv" style="--d:.35s">أستاذتنا الفاضلة زهراء الشهراني، لم يكن دوركِ مجرد إدارةٍ للعمل، بل كنتِ نموذجًا للقائدة الملهمة التي تجمع بين حكمة القرار، ورقي التعامل، وصدق العطاء.</p>
+    </div>
+  </section>
+
+  <section class="scene pg" data-i="3" aria-label="الإنجاز">
+    <div class="in">
+      <div class="label rv">ثالثًا · الإنجاز</div>
+      <h2 class="rv" style="--d:.15s" tabindex="-1">حيث تزهر الإنجازات</h2>
+      <div class="divider rv" style="--d:.25s" aria-hidden="true"><i></i><b></b><i></i></div>
+      <p class="rv" style="--d:.35s">بقيادتكِ تزهر الإنجازات، وبحضوركِ تترسخ روح الفريق، وبجهودكِ تصبح بيئة العمل مساحةً للإبداع والنجاح.</p>
+    </div>
+  </section>
+
+  <section class="scene pg" data-i="4" aria-label="الشكر">
+    <div class="in">
+      <div class="label rv">رابعًا · الشكر</div>
+      <h2 class="rv" style="--d:.15s" tabindex="-1">شكرٌ وعرفان</h2>
+      <div class="divider rv" style="--d:.25s" aria-hidden="true"><i></i><b></b><i></i></div>
+      <p class="rv" style="--d:.35s">شكرًا لكل أثرٍ جميل تركتِه، ولكل جهدٍ بذلتِه، ولكل كلمةٍ صنعت فرقًا.</p>
+    </div>
+  </section>
+
+  <section class="scene fin" data-i="5" aria-label="شهادة الشكر والتقدير">
+    <div class="in">
+      <div class="cert rv">
+        <div class="cert-in">
+          <div class="label">شهادة شكر وتقدير</div>
+          <h2 tabindex="-1">إلى قائدةٍ تصنعُ الفرق</h2>
+          <div class="divider" aria-hidden="true"><i></i><b></b><i></i></div>
+          <div class="intro">تتقدم المعلمة أمل الشهري بخالص الشكر وعظيم الامتنان إلى سعادة</div>
+          <div class="name">الأستاذة زهراء الشهراني</div>
+          <div class="reason">بمناسبة يوم المدير العالمي، تقديرًا لقيادتها المتميزة، وجهودها المباركة، وأثرها الطيب في بيئة العمل المدرسية.</div>
+          <blockquote>كل عام وأنتِ عنوانٌ للتميز، ورمزٌ للعطاء، وقائدةٌ يزهو بها النجاح.</blockquote>
+          <div class="dedic">بكل التقدير والامتنان، نهديكِ كلماتٍ تليق بعطائكِ.</div>
+          <div class="cert-foot">
+            <div class="sig"><small>مع خالص التحية والتقدير</small><small>المعلمة</small><strong>أمل الشهري</strong></div>
+            <svg class="laurel seal" id="sealLaurel" viewBox="-100 -100 200 200" aria-hidden="true">
+              <polygon class="star" points="0,-30 8.6,-20.8 21.2,-21.2 20.8,-8.6 30,0 20.8,8.6 21.2,21.2 8.6,20.8 0,30 -8.6,20.8 -21.2,21.2 -20.8,8.6 -30,0 -20.8,-8.6 -21.2,-21.2 -8.6,-20.8"/>
+              <circle r="7" fill="currentColor"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <button class="again rv" id="againBtn" type="button" style="--d:.6s">إعادة العرض من البداية</button>
+    </div>
+  </section>
+
+  <nav class="nav" aria-label="التنقل بين الصفحات">
+    <button class="prev" id="prevBtn" type="button">السابق</button>
+    <span class="count" id="count">١ من ٤</span>
+    <button class="next" id="nextBtn" type="button">التالي</button>
+  </nav>
+</div>
+
+<script>
+(function(){
+  var NS = 'http://www.w3.org/2000/svg';
+  var LEAF = 'M0 0 C 5 -5.5 15 -5.5 20 0 C 15 5.5 5 5.5 0 0 Z';
+
+  function buildLaurel(svg, R, nodes){
+    var leaves = [];
+    [1, -1].forEach(function(side){
+      var g = document.createElementNS(NS, 'g');
+      if (side < 0) g.setAttribute('transform', 'scale(-1 1)');
+      var a0 = 22, a1 = 158, d = '';
+      for (var a = a0; a <= a1; a += 4){
+        var t = a * Math.PI / 180;
+        d += (a === a0 ? 'M' : ' L') + (R * Math.sin(t)).toFixed(1) + ' ' + (R * Math.cos(t)).toFixed(1);
+      }
+      var st = document.createElementNS(NS, 'path');
+      st.setAttribute('class', 'stem'); st.setAttribute('d', d);
+      g.appendChild(st);
+      for (var i = 0; i < nodes; i++){
+        var deg = a0 + 8 + i * (a1 - a0 - 14) / (nodes - 1);
+        var th = deg * Math.PI / 180;
+        var x = R * Math.sin(th), y = R * Math.cos(th);
+        var dir = -deg;
+        var s = 1 - i * 0.03;
+        [-28, 28].forEach(function(off, k){
+          var w = document.createElementNS(NS, 'g');
+          w.setAttribute('transform', 'translate(' + x.toFixed(1) + ' ' + y.toFixed(1) + ') rotate(' + (dir + off).toFixed(1) + ') scale(' + s.toFixed(2) + ')');
+          w.setAttribute('opacity', k ? '0.85' : '1');
+          var p = document.createElementNS(NS, 'path');
+          p.setAttribute('d', LEAF);
+          p.setAttribute('class', 'lf');
+          w.appendChild(p);
+          g.appendChild(w);
+          leaves.push({ el: p, order: i });
+        });
+      }
+      var tw = document.createElementNS(NS, 'g');
+      var tt = (a1 + 2) * Math.PI / 180;
+      tw.setAttribute('transform', 'translate(' + (R * Math.sin(tt)).toFixed(1) + ' ' + (R * Math.cos(tt)).toFixed(1) + ') rotate(' + (-(a1 + 2)) + ') scale(.8)');
+      var tip = document.createElementNS(NS, 'path');
+      tip.setAttribute('d', LEAF);
+      tip.setAttribute('class', 'lf');
+      tw.appendChild(tip);
+      g.appendChild(tw);
+      leaves.push({ el: tip, order: nodes });
+      svg.insertBefore(g, svg.firstChild);
+    });
+    var tie = document.createElementNS(NS, 'path');
+    tie.setAttribute('d', 'M-14 ' + (R * Math.cos(22 * Math.PI / 180) + 2).toFixed(1) + ' Q 0 ' + (R + 4) + ' 14 ' + (R * Math.cos(22 * Math.PI / 180) + 2).toFixed(1) + ' M0 ' + (R - 2) + ' L -8 ' + (R + 14) + ' M0 ' + (R - 2) + ' L 8 ' + (R + 14));
+    tie.setAttribute('class', 'stem');
+    svg.appendChild(tie);
+    return leaves;
+  }
+
+  buildLaurel(document.getElementById('coverLaurel'), 72, 8);
+  buildLaurel(document.getElementById('sealLaurel'), 72, 8);
+  var pageLeaves = buildLaurel(document.getElementById('pageLaurel'), 72, 8);
+
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var app = document.getElementById('app');
+  var scenes = Array.prototype.slice.call(document.querySelectorAll('.scene'));
+  var bars = document.querySelectorAll('.progress i');
+  var nextBtn = document.getElementById('nextBtn');
+  var count = document.getElementById('count');
+  var pageNum = document.getElementById('pageNum');
+  var AR = ['٠','١','٢','٣','٤','٥'];
+  var cur = 0;
+
+  function setLeaves(stage){
+    var shown = Math.ceil(9 * stage / 4);
+    pageLeaves.forEach(function(l){ l.el.classList.toggle('off', l.order >= shown); });
+  }
+  setLeaves(0);
+
+  function go(n){
+    n = Math.max(0, Math.min(scenes.length - 1, n));
+    if (n === cur) return;
+    scenes[cur].classList.remove('active');
+    cur = n;
+    scenes[cur].classList.add('active');
+    scenes[cur].scrollTop = 0;
+    app.setAttribute('data-scene', cur);
+    if (cur >= 1 && cur <= 4){
+      setLeaves(cur);
+      pageNum.textContent = AR[cur];
+      count.textContent = AR[cur] + ' من ٤';
+    }
+    for (var i = 0; i < bars.length; i++) bars[i].classList.toggle('done', i < cur);
+    nextBtn.textContent = cur === 4 ? 'الشهادة' : 'التالي';
+    var focusEl = scenes[cur].querySelector('[tabindex="-1"]');
+    if (focusEl) setTimeout(function(){ focusEl.focus({ preventScroll: true }); }, 50);
+  }
+
+  document.getElementById('openBtn').addEventListener('click', function(){ go(1); });
+  nextBtn.addEventListener('click', function(){ go(cur + 1); });
+  document.getElementById('prevBtn').addEventListener('click', function(){ go(cur - 1); });
+  document.getElementById('againBtn').addEventListener('click', function(){ go(0); });
+
+  document.addEventListener('keydown', function(e){
+    if (cur === 0) return;
+    if (e.key === 'ArrowLeft') go(cur + 1);
+    else if (e.key === 'ArrowRight') go(cur - 1);
+  });
+
+  var sx = null, sy = null;
+  app.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+  app.addEventListener('touchend', function(e){
+    if (sx === null || cur === 0) return;
+    var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+    sx = null;
+    if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy)) return;
+    if (dx < 0) go(cur + 1); else go(cur - 1);
+  }, { passive: true });
+})();
+</script>
+
+</body></html>
